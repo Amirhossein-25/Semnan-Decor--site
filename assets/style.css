@@ -1,0 +1,212 @@
+/* Semnan Decor - Minimalist Luxury Persian RTL Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+  --primary: #000000;
+  --primary-dark: #121212;
+  --secondary: #775a19;
+  --gold: #C5A059;
+  --gold-hover: #b08d47;
+  --gold-light: #fed488;
+  --bg-surface: #f6faff;
+  --text-main: #141d23;
+  --text-muted: #444748;
+  --border-subtle: rgba(196, 199, 199, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+}
+
+body {
+  font-family: 'Vazirmatn', 'Work Sans', sans-serif;
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glassmorphic elements */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(18, 18, 18, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-gold {
+  background: rgba(197, 160, 89, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+}
+
+/* Material Symbols settings */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  display: inline-block;
+  user-select: none;
+}
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Service Card Hover Animations */
+.service-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+  border-color: rgba(197, 160, 89, 0.6);
+}
+
+/* Product Card */
+.product-card {
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom Gold Accent Button */
+.btn-gold {
+  background-color: var(--gold);
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+.btn-gold:hover {
+  background-color: var(--gold-hover);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Telegram Button */
+.btn-telegram {
+  background-color: #229ED9;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+.btn-telegram:hover {
+  background-color: #1b86ba;
+  box-shadow: 0 6px 18px rgba(34, 158, 217, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Input Fields styling */
+.custom-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid #cbd5e1;
+  padding: 8px 0;
+  color: #141d23;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+}
+.custom-input:focus {
+  border-bottom-color: var(--gold);
+}
+
+/* Navigation active indicator and links */
+.nav-link {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  word-break: keep-all;
+}
+.nav-link.active {
+  color: var(--secondary);
+  font-weight: 700;
+  position: relative;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary);
+  border-radius: 2px;
+}
+
+/* Floating Widget animations */
+.floating-widget {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 24, 30, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 560px;
+  width: 100%;
+}
+.modal-overlay.active .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Toast alert */
+#toast-notification {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 120;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
